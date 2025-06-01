@@ -43,7 +43,10 @@ def get_all_media(folder_paths):
     media = []
     image_count = 0
     video_count = 0
+    skip_count = 0
     yearly_media_count = defaultdict(int)
+    dt_unknown = datetime(1900, 1, 1, 0, 0, 0);
+
     for base_path in folder_paths:
         print(f"Scanning folder: {base_path}")
         for root, _, files in os.walk(base_path):
@@ -56,13 +59,21 @@ def get_all_media(folder_paths):
                         image_count += 1
                         yearly_media_count[dt.year] += 1
                         media.append((dt, full_path))
+                    else:
+                        media.append((dt_unknown, full_path));
                 elif file_lower.endswith(SUPPORTED_VIDEO_EXTENSIONS):
                     dt = parse_datetime_from_filename(file)
                     if dt:
                         video_count += 1
                         yearly_media_count[dt.year] += 1
                         media.append((dt, full_path))
+                    else:
+                        media.append((dt_unknown, full_path));
+                else:
+                    print(f"Unsupported file type: {file} in {root}")
+                    skip_count += 1
     print(f"Total media found: {len(media)}")
+    print(f"  Skipped: {skip_count}")
     print(f"  Images: {image_count}")
     print(f"  Videos: {video_count}")
     print("  Media per year:")
