@@ -5,10 +5,12 @@ if __name__ == '__main__':
     # Example usage with configuration dictionary
     config = {
         'input_folders': [
+                        'D:/CloudStation/_Need Organization/Roland Phone - Older',
+                        'D:/CloudStation/_Need Organization/Roland Phone - OnePlus5',
                         'D:/CloudStation/_Need Organization/Roland Phone - Samsung Galaxy S21',
                         'D:/CloudStation/_Need Organization/Roland Phone - Samsung Galaxy S24',
                         'D:/CloudStation/_Need Organization/Mado Phone - Samsung Galaxy S24',
-                        'D:/CloudStation/_Need Organization/Mado Phone - Samsung Galaxy S10/Camera'
+                        'D:/CloudStation/_Need Organization/Mado Phone - Samsung Galaxy S10/Camera',
                         'D:/CloudStation/_Need Organization/Mado Phone - Samsung Galaxy S20/Camera',
                         ],
         'event_output_folder': 'D:/CloudStation/_Need Organization/Sorted3',
